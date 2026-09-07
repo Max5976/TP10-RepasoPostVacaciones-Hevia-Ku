@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { buscarCanciones } from "../../services/musicaAPI.js";
 import './Home.css';
 
 import SearchBar from '../../components/SearchBar/SearchBar.jsx';
@@ -11,7 +12,21 @@ function Home() {
     const [loading, setLoading] = useState(false);
 
     async function handleBuscar() {
-        // consultar API
+        if (!buscar.trim()) { 
+            return; 
+        } 
+        
+        try { 
+            setLoading(true); 
+            const resultados = await buscarCanciones(buscar); 
+            setCanciones(resultados); 
+        } 
+        catch (error) { 
+            console.error('Error al buscar canciones:', error); 
+            setCanciones([]); 
+        } finally { 
+            setLoading(false); 
+        }
     }
 
     return (
@@ -31,7 +46,7 @@ function Home() {
             <section className="seccion-resultados">
                 <h2>Resultados</h2>
 
-                <ListaCanciones canciones={canciones}/>
+                {loading ? (<p>Cargando canciones...</p>) : (<ListaCanciones canciones={canciones}/>)}
             </section>
 
         </div>

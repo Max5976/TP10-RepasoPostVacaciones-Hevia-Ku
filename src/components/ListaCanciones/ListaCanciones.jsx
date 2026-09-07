@@ -1,14 +1,14 @@
 import './ListaCanciones.css';
 
-import TarjetaCancion from '../TarjetaCancion/TarjetaCancion.jsx';
+import TarjetaCancion from '../CancionTarjeta/CancionTarjeta.jsx';
 
 function ListaCanciones({ canciones }) {
     return (
         <div className="lista-canciones">
 
-            {canciones.map((cancion) => (
+            {canciones.map((cancion, index) => (
                 <TarjetaCancion
-                    key={cancion.id}
+                    key={index}
                     cancion={cancion}
                 />
             ))}
