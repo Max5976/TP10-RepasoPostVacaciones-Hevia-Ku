@@ -1,12 +1,19 @@
 header {
     width: 100%;
-    padding: 25px 50px;
+
+    padding: 20px 40px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
     box-sizing: border-box;
+
+    background-color: #000;
+
+    border-bottom: 5px solid #00ff9d;
+
+    font-family: "Courier New", monospace;
 }
 
 header .logo {
@@ -16,27 +23,113 @@ header .logo {
 
 header h1 {
     margin: 0;
-    font-size: 3rem;
-    padding-bottom: 5%;
+
+    padding-bottom: 5px;
+
+    color: #00ff9d;
+
+    font-size: 2.2rem;
+
+    font-weight: bold;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    text-shadow: 4px 4px 0 #006644;
 }
 
 header h2 {
     margin: 0;
-    font-size: 1rem;
-    font-weight: normal;
+
+    color: #fff;
+
+    font-size: 0.85rem;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
 }
 
 header nav {
     display: flex;
-    gap: 25px;
+
+    gap: 15px;
 }
 
 header nav a {
+    padding: 10px 15px;
+
+    background-color: #111;
+
+    color: #fff;
+
+    border: 3px solid #fff;
+
     text-decoration: none;
-    font-weight: 500;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    box-shadow: 4px 4px 0 #00ff9d;
+
+    transition: none;
 }
 
 header nav a:hover {
-    text-decoration: underline;
+    background-color: #00ff9d;
+
+    color: #000;
+
+    text-decoration: none;
+
+    transform: translate(3px, 3px);
+
+    box-shadow: 1px 1px 0 #fff;
 }
 
+header nav a:active {
+    transform: translate(4px, 4px);
+
+    box-shadow: none;
+}
+
+
+@media (max-width: 700px) {
+    header {
+        flex-direction: column;
+
+        gap: 25px;
+
+        padding: 25px 20px;
+
+        text-align: center;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    header h2 {
+        font-size: 0.7rem;
+    }
+
+    header nav {
+        width: 100%;
+
+        justify-content: center;
+
+        gap: 10px;
+    }
+
+    header nav a {
+        font-size: 12px;
+
+        padding: 8px 10px;
+    }
+}

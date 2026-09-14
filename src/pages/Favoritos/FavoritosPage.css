@@ -1,0 +1,58 @@
+.favoritos {
+    min-height: 80vh;
+
+    padding: 40px;
+
+    background-color: #111;
+}
+
+.seccion-favoritos {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.seccion-favoritos h1 {
+    display: inline-block;
+
+    margin-bottom: 40px;
+
+    padding: 15px 20px;
+
+    background-color: #ffdf00;
+    color: #000;
+
+    border: 5px solid #fff;
+
+    box-shadow: 8px 8px 0 #000;
+
+    font-size: 32px;
+
+    text-transform: uppercase;
+}
+
+.lista-favoritos {
+    display: grid;
+
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+
+    gap: 25px;
+}
+
+.sin-favoritos {
+    padding: 40px;
+
+    background-color: #1b1b1b;
+
+    border: 5px dashed #777;
+
+    text-align: center;
+}
+
+.sin-favoritos p {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.sin-favoritos p:first-child {
+    color: #ffdf00;
+}

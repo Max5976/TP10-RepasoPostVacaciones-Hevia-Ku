@@ -1,9 +1,47 @@
-footer {
+.footer {
     width: 100%;
-    padding: 20px;
+
+    padding: 25px 40px;
+
+    background-color: #000;
+
+    border-top: 5px solid #00ff9d;
+
+    color: #fff;
+
     text-align: center;
+
+    font-family: "Courier New", monospace;
 }
 
-footer p {
-    margin: 0;
+.footer p {
+    margin: 5px 0;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+}
+
+.footer .footer-titulo {
+    color: #00ff9d;
+
+    font-size: 18px;
+
+    letter-spacing: 3px;
+}
+
+@media (max-width: 600px) {
+    .footer {
+        padding: 20px;
+    }
+
+    .footer .footer-titulo {
+        font-size: 15px;
+    }
+
+    .footer p {
+        font-size: 12px;
+    }
 }

@@ -1,24 +1,52 @@
 .home {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px;
-    box-sizing: border-box;
+    min-height: 80vh;
+    padding: 40px;
+    background-color: #111;
 }
 
 .seccion-busqueda {
-    text-align: center;
-    margin-bottom: 50px;
+    max-width: 900px;
+    margin: 0 auto 40px;
+    padding: 30px;
+
+    background-color: #1b1b1b;
+
+    border: 5px solid #fff;
+    box-shadow: 10px 10px 0 #000;
 }
 
 .seccion-busqueda h1 {
-    margin-bottom: 10px;
+    margin: 0 0 15px;
+
+    font-size: 36px;
+    color: #00ff9d;
+
+    text-transform: uppercase;
+    letter-spacing: 3px;
 }
 
 .seccion-busqueda p {
-    margin-bottom: 25px;
+    color: #ccc;
+    font-size: 16px;
+}
+
+.seccion-resultados {
+    max-width: 1200px;
+    margin: auto;
 }
 
 .seccion-resultados h2 {
-    margin-bottom: 25px;
+    display: inline-block;
+
+    padding: 10px 15px;
+
+    background-color: #00ff9d;
+    color: #000;
+
+    border: 4px solid #000;
+
+    font-size: 24px;
+    text-transform: uppercase;
+
+    box-shadow: 6px 6px 0 #fff;
 }

@@ -1,5 +1,9 @@
 import { useState } from 'react';
-import { buscarCanciones } from "../../services/musicaAPI.js";
+import {
+    buscarCanciones,
+    obtenerInformacionCancion
+} from "../../services/musicaAPI.js";
+
 import './Home.css';
 
 import SearchBar from '../../components/SearchBar/SearchBar.jsx';
@@ -12,20 +16,30 @@ function Home() {
     const [loading, setLoading] = useState(false);
 
     async function handleBuscar() {
-        if (!buscar.trim()) { 
-            return; 
-        } 
-        
-        try { 
-            setLoading(true); 
-            const resultados = await buscarCanciones(buscar); 
-            setCanciones(resultados); 
-        } 
-        catch (error) { 
-            console.error('Error al buscar canciones:', error); 
-            setCanciones([]); 
-        } finally { 
-            setLoading(false); 
+        if (!buscar.trim()) {
+            return;
+        }
+
+        try {
+            setLoading(true);
+
+            const resultados = await buscarCanciones(buscar);
+
+            const cancionesCompletas = await Promise.all(
+                resultados.map(cancion =>
+                    obtenerInformacionCancion(cancion)
+                )
+            );
+
+            setCanciones(cancionesCompletas);
+
+        }
+        catch (error) {
+            console.error('Error al buscar canciones:', error);
+            setCanciones([]);
+        }
+        finally {
+            setLoading(false);
         }
     }
 
@@ -36,6 +50,7 @@ function Home() {
                 <h1>Explorá música</h1>
 
                 <p>Buscá canciones, artistas y álbumes.</p>
+
                 <SearchBar
                     buscar={buscar}
                     setBuscar={setBuscar}
@@ -46,7 +61,12 @@ function Home() {
             <section className="seccion-resultados">
                 <h2>Resultados</h2>
 
-                {loading ? (<p>Cargando canciones...</p>) : (<ListaCanciones canciones={canciones}/>)}
+                {loading ? (
+                    <p>Cargando canciones...</p>
+                ) : (
+                    <ListaCanciones canciones={canciones} />
+                )}
+
             </section>
 
         </div>
